@@ -1,12 +1,18 @@
 package ua.synkulych.sort_it.database;
 
 import com.mysql.cj.jdbc.MysqlDataSource;
+import javafx.geometry.Pos;
+import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
+import ua.synkulych.sort_it.entity.Rating;
 import ua.synkulych.sort_it.entity.Response;
 import ua.synkulych.sort_it.entity.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class DatabaseSQL implements DatabaseService {
   private String user, password, serverName, databaseName;
@@ -115,6 +121,36 @@ public class DatabaseSQL implements DatabaseService {
         response.setDescription(ex + "");
       }
     }
+    return response;
+  }
+
+  /**
+   * This method create a rating list of users
+   * @return all info about users in rating list
+   */
+  public Response<ArrayList<Rating>> getRatingList() {
+    Response<ArrayList<Rating>> response = new Response<>();
+
+    String SQL= "SELECT username, points FROM users ORDER BY points DESC";
+    PreparedStatement statement;
+    ArrayList<Rating> ratingArrayList = new ArrayList<>();
+
+    try {
+      statement = connection.prepareStatement(SQL);
+      ResultSet result = statement.executeQuery();
+
+      int rateCounter = 1;
+
+      while (result.next()) {
+        String username = result.getString(1);
+        int points = result.getInt(2);
+        ratingArrayList.add(new Rating(username, rateCounter, points));
+        rateCounter++;
+      }
+    } catch (SQLException ex) {
+      System.out.println(ex  + "");
+    }
+
     return response;
   }
 }

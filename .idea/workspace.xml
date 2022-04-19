@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1744d8f-4d27-4733-b6a9-f34e69a59d2a" name="Changes" comment="Created Response and DatabaseSQL classes;&#10;Created &quot;connect&quot; method for DatabaseSQL class;&#10;Created &quot;getters&quot; and &quot;setters&quot; for private variables in Response class;">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/database/DatabaseService.java" afterDir="false" />
+    <list default="true" id="c1744d8f-4d27-4733-b6a9-f34e69a59d2a" name="Changes" comment="Created registration method and interface for it in DatabaseSQL class">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/entity/Rating.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/ProgramRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/ProgramRunner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/database/DatabaseSQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/database/DatabaseSQL.java" afterDir="false" />
@@ -18,9 +18,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
         <option value="AnnotationType" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -86,7 +86,7 @@
       <option name="presentableId" value="Default" />
       <updated>1650348904458</updated>
       <workItem from="1650348905922" duration="3446000" />
-      <workItem from="1650352684574" duration="13624000" />
+      <workItem from="1650352684574" duration="15485000" />
     </task>
     <task id="LOCAL-00001" summary="Create basic template for javafx">
       <created>1650351895102</created>
@@ -102,7 +102,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650362529982</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Created registration method and interface for it in DatabaseSQL class">
+      <created>1650384933524</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1650384933524</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -123,6 +130,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Create basic template for javafx" />
     <MESSAGE value="Created Response and DatabaseSQL classes;&#10;Created &quot;connect&quot; method for DatabaseSQL class;&#10;Created &quot;getters&quot; and &quot;setters&quot; for private variables in Response class;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created Response and DatabaseSQL classes;&#10;Created &quot;connect&quot; method for DatabaseSQL class;&#10;Created &quot;getters&quot; and &quot;setters&quot; for private variables in Response class;" />
+    <MESSAGE value="Created registration method and interface for it in DatabaseSQL class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created registration method and interface for it in DatabaseSQL class" />
   </component>
 </project>
