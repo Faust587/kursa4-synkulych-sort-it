@@ -1,5 +1,8 @@
 package ua.synkulych.sort_it.database;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+
 public interface DatabaseService {
   /**
    * Validate username;
@@ -19,5 +22,13 @@ public interface DatabaseService {
   default boolean userPasswordIsValid(String password) {
     int usernameLength = password.length();
     return usernameLength >= 4 && usernameLength <= 8;
+  }
+
+  default void closeConnection(Connection connection) {
+    try {
+      connection.close();
+    } catch (SQLException e) {
+      throw new RuntimeException(e);
+    }
   }
 }

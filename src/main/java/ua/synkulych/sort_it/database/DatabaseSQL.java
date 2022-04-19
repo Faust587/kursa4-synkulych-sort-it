@@ -121,6 +121,7 @@ public class DatabaseSQL implements DatabaseService {
         response.setDescription(ex + "");
       }
     }
+    closeConnection(connection);
     return response;
   }
 
@@ -150,7 +151,29 @@ public class DatabaseSQL implements DatabaseService {
     } catch (SQLException ex) {
       System.out.println(ex  + "");
     }
+    closeConnection(connection);
+    return response;
+  }
 
+  public Response<Boolean> addPointsToUserRating(int points) {
+    Response<Boolean> response = new Response<>();
+
+    String SQL= "UPDATE `users` SET points = points + ? WHERE username=?";
+    PreparedStatement statement;
+    try {
+      statement = connection.prepareStatement(SQL);
+      statement.setInt(1, points);
+      statement.setString(2, User.getUsername());
+      int result = statement.executeUpdate();
+      response.setOK(result == 1);
+      response.setTitle("Unknown database error");
+      response.setDescription("Unknown database error, please try again");
+    } catch (SQLException ex) {
+      response.setOK(false);
+      response.setTitle("SERVER ERROR");
+      response.setDescription(ex + "");
+    }
+    closeConnection(connection);
     return response;
   }
 }
