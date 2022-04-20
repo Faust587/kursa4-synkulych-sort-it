@@ -1,0 +1,92 @@
+#AuthView {
+    width: 1080px;
+    height: 720px;
+    max-height: 720px;
+    max-width: 1080px;
+    min-height: 720px;
+    min-width: 1080px;
+    -fx-pref-height: 720px;
+    -fx-pref-width: 1080px;
+    -fx-background-color: #F1E9DB;
+    -fx-alignment: CENTER;
+}
+
+#SignInForm {
+    -fx-pref-width: 500px;
+    -fx-pref-height: 100%;
+    -fx-alignment: CENTER;
+    -fx-spacing: 15px;
+}
+
+#SignUpForm {
+    -fx-pref-width: 500px;
+    -fx-pref-height: 100%;
+    -fx-alignment: CENTER;
+    -fx-spacing: 15px;
+}
+
+.AuthLabel {
+    -fx-font-size: 30px;
+    -fx-font-weight: 900;
+    -fx-font-family: "Segoe UI";
+    -fx-text-fill: #5DB7DE;
+}
+
+.InputLabel {
+    -fx-pref-width: 500px;
+    -fx-padding: 30px 0px 0px 50px;
+    -fx-font-size: 20px;
+    -fx-font-weight: 900;
+    -fx-font-family: "Segoe UI";
+    -fx-text-fill: #808080;
+}
+
+.InputTextField {
+    -fx-font-size: 20px;
+    -fx-font-weight: 800;
+    -fx-max-width: 400px;
+    -fx-border-width: 0px;
+    -fx-background-color: #fff;
+    -fx-text-fill: #5DB7DE;
+}
+
+.InputTextField:focused {
+    -fx-background-color: #808080;
+    -fx-text-fill: #F1E9DB;
+}
+
+.AuthButton {
+    -fx-background-color: #A39B8B;
+    -fx-font-size: 20px;
+    -fx-font-weight: 900;
+    -fx-font-family: "Segoe UI";
+    -fx-text-fill: #fff;
+    -fx-background-radius: 9px;
+    -fx-pref-height: 52px;
+    -fx-pref-width: 187px;
+}
+
+.AuthButton:hover {
+    -fx-background-color: #808080;
+    -fx-text-fill: #F1E9DB;
+}
+
+.AuthButton:pressed {
+    -fx-background-color: #3590F3;
+    -fx-text-fill: #F1E9DB;
+}
+
+#AlertView {
+    -fx-pref-width: 600px;
+    -fx-pref-height: 400px;
+    -fx-background-color: #F1E9DB;
+    -fx-alignment: CENTER;
+}
+
+#AlertDescription {
+    -fx-text-alignment: CENTER;
+    -fx-font-size: 20px;
+    -fx-font-weight: 900;
+    -fx-font-family: "Segoe UI";
+    -fx-text-fill: #ff0000;
+}

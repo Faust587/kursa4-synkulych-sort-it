@@ -24,11 +24,26 @@ public interface DatabaseService {
     return usernameLength >= 4 && usernameLength <= 8;
   }
 
-  default void closeConnection(Connection connection) {
-    try {
-      connection.close();
-    } catch (SQLException e) {
-      throw new RuntimeException(e);
+  default String parseError(String error) {
+    String parsedError = "";
+    String[] arraySrt = error.split(" ");
+    for (int i = 1; i < arraySrt.length; i++) {
+      parsedError += arraySrt[i] + " ";
     }
+    return parsedError;
+  }
+
+  /**
+   * This method check connection to database
+   * @return boolean
+   */
+  default boolean checkConnection() {
+    boolean result;
+    try {
+      result = DatabaseSQL.connection.isValid(3);
+    } catch (SQLException e) {
+      result = false;
+    }
+    return result;
   }
 }

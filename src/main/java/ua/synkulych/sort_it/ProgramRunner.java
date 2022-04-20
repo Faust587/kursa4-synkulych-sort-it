@@ -1,10 +1,16 @@
 package ua.synkulych.sort_it;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import ua.synkulych.sort_it.controllers.AuthController;
 import ua.synkulych.sort_it.database.DatabaseSQL;
 import ua.synkulych.sort_it.entity.Response;
 import ua.synkulych.sort_it.entity.User;
+
+import java.util.Objects;
 
 public class ProgramRunner extends Application {
 
@@ -14,9 +20,11 @@ public class ProgramRunner extends Application {
 
   @Override
   public void start(Stage stage) throws Exception {
-    User.setUsername("Faust");
-    DatabaseSQL databaseSQL = new DatabaseSQL("root", "", "127.0.0.1", "sort_it_database", 3306);
-    databaseSQL.connect();
-    System.out.println(databaseSQL.addPointsToUserRating(100).getDescription());
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("/AuthView.fxml"));
+    Scene authScene = new Scene(loader.load());
+    stage.getIcons().add(new Image(ProgramRunner.class.getResourceAsStream( "/icon.png" )));
+    ((AuthController)loader.getController()).init(stage);
+    stage.setScene(authScene);
+    stage.show();
   }
 }

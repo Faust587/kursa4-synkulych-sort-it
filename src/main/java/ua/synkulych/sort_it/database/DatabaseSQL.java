@@ -1,9 +1,7 @@
 package ua.synkulych.sort_it.database;
 
 import com.mysql.cj.jdbc.MysqlDataSource;
-import javafx.geometry.Pos;
-import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
+
 import ua.synkulych.sort_it.entity.Rating;
 import ua.synkulych.sort_it.entity.Response;
 import ua.synkulych.sort_it.entity.User;
@@ -17,7 +15,7 @@ import java.util.ArrayList;
 public class DatabaseSQL implements DatabaseService {
   private String user, password, serverName, databaseName;
   private int port;
-  private Connection connection = null;
+  public static Connection connection = null;
 
   /**
    * DatabaseSQL constructor which can do actions to connected MySQL database
@@ -46,6 +44,11 @@ public class DatabaseSQL implements DatabaseService {
      * TODO ask question to teacher about constant for connection to database;
      */
 
+    if (connection != null && checkConnection()) {
+      response.setOK(true);
+      return response;
+    }
+
     MysqlDataSource dataSource = new MysqlDataSource();
     dataSource.setUser(user);
     dataSource.setPassword(password);
@@ -58,14 +61,14 @@ public class DatabaseSQL implements DatabaseService {
     } catch (SQLException ex) {
       response.setOK(false);
       response.setTitle("Connection error");
-      response.setDescription(ex+"");
+      response.setDescription(parseError(ex + ""));
     }
     try {
       dataSource.setCharacterEncoding("utf8");
     } catch (SQLException ex) {
       response.setOK(false);
       response.setTitle("Connection error");
-      response.setDescription(ex+"");
+      response.setDescription(parseError(ex + ""));
     }
     try {
       connection=dataSource.getConnection();
@@ -74,7 +77,7 @@ public class DatabaseSQL implements DatabaseService {
       connection=null;
       response.setOK(false);
       response.setTitle("Connection error");
-      response.setDescription(ex+"");
+      response.setDescription(parseError(ex + ""));
     }
     return response;
   }
@@ -118,10 +121,9 @@ public class DatabaseSQL implements DatabaseService {
         response.setDescription("This name has already taken, choose another name");
       } else {
         response.setTitle("ERROR");
-        response.setDescription(ex + "");
+        response.setDescription(parseError(ex + ""));
       }
     }
-    closeConnection(connection);
     return response;
   }
 
@@ -151,10 +153,14 @@ public class DatabaseSQL implements DatabaseService {
     } catch (SQLException ex) {
       System.out.println(ex  + "");
     }
-    closeConnection(connection);
     return response;
   }
 
+  /**
+   * This method updates info about user's points
+   * @param points this is integer variable, which is added to all user's points
+   * @return response info about database updating
+   */
   public Response<Boolean> addPointsToUserRating(int points) {
     Response<Boolean> response = new Response<>();
 
@@ -171,9 +177,44 @@ public class DatabaseSQL implements DatabaseService {
     } catch (SQLException ex) {
       response.setOK(false);
       response.setTitle("SERVER ERROR");
-      response.setDescription(ex + "");
+      response.setDescription(parseError(ex + ""));
     }
-    closeConnection(connection);
+    return response;
+  }
+
+  /**
+   * This method check that user data is correct
+   * @param username this is a string variable
+   * @param password this is a string variable
+   * @return response about login operation
+   */
+  public Response<Boolean> userLogIn(String username, String password) {
+    Response<Boolean> response = new Response<>();
+
+    String SQL= "SELECT username, password FROM users WHERE username=?";
+    PreparedStatement statement;
+    try {
+      statement = connection.prepareStatement(SQL);
+      statement.setString(1, username);
+      ResultSet result = statement.executeQuery();
+      if (result.next()) {
+        if (result.getString(2).equals(password)) {
+          response.setOK(true);
+        } else {
+          response.setOK(false);
+          response.setTitle("Incorrect password");
+          response.setDescription("Please try again with another password");
+        }
+      } else {
+        response.setOK(false);
+        response.setTitle("This username is not exists");
+        response.setDescription("Check that your username is correct");
+      }
+    } catch (SQLException ex) {
+      response.setOK(false);
+      response.setTitle("SERVER ERROR");
+      response.setDescription(parseError(ex + ""));
+    }
     return response;
   }
 }
