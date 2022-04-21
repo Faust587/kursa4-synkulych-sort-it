@@ -153,6 +153,7 @@ public class DatabaseSQL implements DatabaseService {
     } catch (SQLException ex) {
       System.out.println(ex  + "");
     }
+    response.setValue(ratingArrayList);
     return response;
   }
 

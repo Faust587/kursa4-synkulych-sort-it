@@ -4,20 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1744d8f-4d27-4733-b6a9-f34e69a59d2a" name="Changes" comment="Created update method and interface for it in DatabaseSQL class">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/controllers/AlertController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/controllers/AuthController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/entity/AlertWindow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/AlertView.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/AuthView.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/error_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oops.png" afterDir="false" />
+    <list default="true" id="c1744d8f-4d27-4733-b6a9-f34e69a59d2a" name="Changes" comment="Created AuthView.fxml, AlertView.fxml and controllers to them.&#10;Updated DatabaseService.java, DatabaseSQL.java;">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/controllers/MenuController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/controllers/RatingController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/controllers/RatingService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/MenuView.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/RatingView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/ProgramRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/ProgramRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/controllers/AuthController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/database/DatabaseSQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/database/DatabaseSQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/database/DatabaseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/database/DatabaseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/oops.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oops.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,10 +25,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="AnnotationType" />
         <option value="CSS File" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -99,7 +97,9 @@
       <updated>1650348904458</updated>
       <workItem from="1650348905922" duration="3446000" />
       <workItem from="1650352684574" duration="35272000" />
-      <workItem from="1650476364030" duration="332000" />
+      <workItem from="1650476364030" duration="8228000" />
+      <workItem from="1650527667792" duration="820000" />
+      <workItem from="1650551130787" duration="9176000" />
     </task>
     <task id="LOCAL-00001" summary="Create basic template for javafx">
       <created>1650351895102</created>
@@ -136,7 +136,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650387682128</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Created AuthView.fxml, AlertView.fxml and controllers to them.&#10;Updated DatabaseService.java, DatabaseSQL.java;">
+      <created>1650476971955</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1650476971955</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -159,6 +166,7 @@
     <MESSAGE value="Created Response and DatabaseSQL classes;&#10;Created &quot;connect&quot; method for DatabaseSQL class;&#10;Created &quot;getters&quot; and &quot;setters&quot; for private variables in Response class;" />
     <MESSAGE value="Created registration method and interface for it in DatabaseSQL class" />
     <MESSAGE value="Created update method and interface for it in DatabaseSQL class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created update method and interface for it in DatabaseSQL class" />
+    <MESSAGE value="Created AuthView.fxml, AlertView.fxml and controllers to them.&#10;Updated DatabaseService.java, DatabaseSQL.java;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created AuthView.fxml, AlertView.fxml and controllers to them.&#10;Updated DatabaseService.java, DatabaseSQL.java;" />
   </component>
 </project>

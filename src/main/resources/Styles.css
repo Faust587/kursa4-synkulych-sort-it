@@ -79,7 +79,8 @@
 #AlertView {
     -fx-pref-width: 600px;
     -fx-pref-height: 400px;
-    -fx-background-color: #F1E9DB;
+    -fx-background-color: #fff;
+    -fx-spacing: 20px;
     -fx-alignment: CENTER;
 }
 
@@ -89,4 +90,75 @@
     -fx-font-weight: 900;
     -fx-font-family: "Segoe UI";
     -fx-text-fill: #ff0000;
+}
+
+#MenuView {
+    -fx-spacing: 20px;
+    -fx-pref-height: 720px;
+    -fx-pref-width: 1080px;
+    -fx-background-color: #F1E9DB;
+    -fx-alignment: CENTER;
+}
+
+#MenuTitle {
+    -fx-font-size: 60px;
+    -fx-font-weight: 900;
+    -fx-text-fill: #5DB7DE;
+    -fx-font-family: "Segoe UI";
+    -fx-padding: 20px 0px 0px 0px;
+}
+
+.MenuButton {
+    -fx-background-color: #A39B8B;
+    -fx-font-size: 20px;
+    -fx-font-weight: 900;
+    -fx-font-family: "Segoe UI";
+    -fx-text-fill: #fff;
+    -fx-background-radius: 9px;
+    -fx-pref-height: 52px;
+    -fx-pref-width: 187px;
+}
+
+.MenuButton:hover {
+    -fx-background-color: #808080;
+    -fx-text-fill: #F1E9DB;
+}
+
+.MenuButton:pressed {
+    -fx-background-color: #3590F3;
+    -fx-text-fill: #F1E9DB;
+}
+
+#RatingView {
+    max-height: 720px;
+    max-width: 1080px;
+    min-height: 720px;
+    min-width: 1080px;
+    -fx-pref-height: 720px;
+    -fx-pref-width: 1080px;
+    -fx-background-color: #F1E9DB;
+    -fx-alignment: CENTER;
+    -fx-spacing: 15px;
+}
+
+#RatingList {
+    -fx-pref-height: 500px;
+    -fx-pref-width: 700px;
+    -fx-max-width: 700px;
+    -fx-alignment: CENTER;
+}
+
+#RatingTitle {
+    -fx-font-size: 60px;
+    -fx-font-weight: 900;
+    -fx-text-fill: #5DB7DE;
+    -fx-font-family: "Segoe UI";
+    -fx-padding: 20px 0px 0px 0px;
+}
+
+#RatingPane {
+    /*-fx-pref-width: 700px;*/
+    /*-fx-max-width: 700px;*/
+    -fx-alignment: CENTER;
+    -fx-padding: 0px 400px;
 }

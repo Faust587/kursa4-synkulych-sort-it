@@ -22,6 +22,7 @@ public class ProgramRunner extends Application {
   public void start(Stage stage) throws Exception {
     FXMLLoader loader = new FXMLLoader(getClass().getResource("/AuthView.fxml"));
     Scene authScene = new Scene(loader.load());
+    stage.setTitle("Authorization");
     stage.getIcons().add(new Image(ProgramRunner.class.getResourceAsStream( "/icon.png" )));
     ((AuthController)loader.getController()).init(stage);
     stage.setScene(authScene);
