@@ -4,18 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1744d8f-4d27-4733-b6a9-f34e69a59d2a" name="Changes" comment="Created AuthView.fxml, AlertView.fxml and controllers to them.&#10;Updated DatabaseService.java, DatabaseSQL.java;">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/controllers/MenuController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/controllers/RatingController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/controllers/RatingService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/MenuView.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/RatingView.fxml" afterDir="false" />
+    <list default="true" id="c1744d8f-4d27-4733-b6a9-f34e69a59d2a" name="Changes" comment="I wrote a lot of bad code...">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/controllers/GameController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/controllers/SetDifficultController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/controllers/WindowsServices.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/entity/BoardSizes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/GameView.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/SetDifficultView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/ProgramRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/ProgramRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/controllers/AlertController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/controllers/AlertController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/controllers/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/controllers/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/controllers/MenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/controllers/RatingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/controllers/RatingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/controllers/RatingService.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/database/DatabaseSQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/database/DatabaseSQL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/database/DatabaseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/database/DatabaseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/entity/AlertWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/entity/AlertWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/MenuView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MenuView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/RatingView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RatingView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/oops.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oops.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,13 +38,17 @@
       <list>
         <option value="AnnotationType" />
         <option value="CSS File" />
-        <option value="Class" />
+        <option value="FxmlFile" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/controllers/GameController.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -99,7 +114,15 @@
       <workItem from="1650352684574" duration="35272000" />
       <workItem from="1650476364030" duration="8228000" />
       <workItem from="1650527667792" duration="820000" />
-      <workItem from="1650551130787" duration="9176000" />
+      <workItem from="1650551130787" duration="11071000" />
+      <workItem from="1650649527674" duration="19382000" />
+      <workItem from="1650739528147" duration="9410000" />
+      <workItem from="1650782571629" duration="8664000" />
+      <workItem from="1650820430061" duration="3950000" />
+      <workItem from="1650869692755" duration="2104000" />
+      <workItem from="1650872327174" duration="3701000" />
+      <workItem from="1650879473786" duration="13147000" />
+      <workItem from="1650902963304" duration="4807000" />
     </task>
     <task id="LOCAL-00001" summary="Create basic template for javafx">
       <created>1650351895102</created>
@@ -143,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650476971955</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="I wrote a lot of bad code...">
+      <created>1650562232172</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1650562232172</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -167,6 +197,17 @@
     <MESSAGE value="Created registration method and interface for it in DatabaseSQL class" />
     <MESSAGE value="Created update method and interface for it in DatabaseSQL class" />
     <MESSAGE value="Created AuthView.fxml, AlertView.fxml and controllers to them.&#10;Updated DatabaseService.java, DatabaseSQL.java;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created AuthView.fxml, AlertView.fxml and controllers to them.&#10;Updated DatabaseService.java, DatabaseSQL.java;" />
+    <MESSAGE value="I wrote a lot of bad code..." />
+    <option name="LAST_COMMIT_MESSAGE" value="I wrote a lot of bad code..." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.util.EmptyStackException" package="java.util" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

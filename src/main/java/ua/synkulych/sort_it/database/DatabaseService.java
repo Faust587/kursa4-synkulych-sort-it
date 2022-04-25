@@ -1,6 +1,5 @@
 package ua.synkulych.sort_it.database;
 
-import java.sql.Connection;
 import java.sql.SQLException;
 
 public interface DatabaseService {
@@ -25,12 +24,12 @@ public interface DatabaseService {
   }
 
   default String parseError(String error) {
-    String parsedError = "";
+    StringBuilder parsedError = new StringBuilder();
     String[] arraySrt = error.split(" ");
     for (int i = 1; i < arraySrt.length; i++) {
-      parsedError += arraySrt[i] + " ";
+      parsedError.append(arraySrt[i]).append(" ");
     }
-    return parsedError;
+    return parsedError.toString();
   }
 
   /**

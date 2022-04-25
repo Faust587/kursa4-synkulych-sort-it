@@ -1,23 +1,16 @@
 package ua.synkulych.sort_it.controllers;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
-import ua.synkulych.sort_it.ProgramRunner;
 import ua.synkulych.sort_it.database.DatabaseSQL;
 import ua.synkulych.sort_it.entity.AlertWindow;
 import ua.synkulych.sort_it.entity.Response;
 import ua.synkulych.sort_it.entity.User;
 
-import java.io.IOException;
-
-public class AuthController {
+public class AuthController implements WindowsServices {
 
   @FXML public HBox AuthView;
   @FXML public TextField SignInUsername;
@@ -44,9 +37,8 @@ public class AuthController {
   /**
    * This is action method for "Sign Up" button
    * Which make authorization for user
-   * @param mouseEvent information about mouse event and clicked button
    */
-  public void SignInAction(MouseEvent mouseEvent) {
+  public void SignInAction() {
     DatabaseSQL databaseSQL = new DatabaseSQL("root", "", "127.0.0.1", "sort_it_database", 3306);
     String username = SignInUsername.getText();
     String password = SignInPassword.getText();
@@ -64,9 +56,8 @@ public class AuthController {
   /**
    * This is action method for "Sign In" button
    * Which make registration for user
-   * @param mouseEvent information about mouse event and clicked button
    */
-  public void SignUpAction(MouseEvent mouseEvent) {
+  public void SignUpAction() {
     if (!SignUpPassword.getText().equals(SignUpRepeatPassword.getText())) {
       AlertWindow alertWindow = new AlertWindow("Incorrect password", "Your passwords are not the same");
       alertWindow.displayDialog();
@@ -91,18 +82,6 @@ public class AuthController {
    * This method open the main menu
    */
   public void openMenu() {
-    stage.hide();
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("/MenuView.fxml"));
-    Scene authScene;
-    try {
-      authScene = new Scene(loader.load());
-    } catch (IOException e) {
-      throw new RuntimeException(e);
-    }
-    stage.setTitle("Main menu");
-    stage.getIcons().add(new Image(ProgramRunner.class.getResourceAsStream( "/icon.png" )));
-    ((MenuController)loader.getController()).init(stage);
-    stage.setScene(authScene);
-    stage.show();
+    openNewWindow(stage, "/MenuView.fxml", "Main menu", null);
   }
 }

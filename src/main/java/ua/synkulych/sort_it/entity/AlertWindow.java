@@ -31,7 +31,7 @@ public class AlertWindow {
     stage.getIcons().add(new Image(AlertWindow.class.getResourceAsStream( "/error_icon.png" )));
     try {
       stage.setScene(new Scene(loader.load()));
-      ((AlertController)loader.getController()).init(stage, description);
+      ((AlertController)loader.getController()).init(description);
     } catch (IOException e) {
       throw new RuntimeException(e);
     }

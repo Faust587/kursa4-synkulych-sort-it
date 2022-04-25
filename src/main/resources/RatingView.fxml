@@ -14,6 +14,6 @@
                 <VBox fx:id="RatingList" />
             </content>
         </ScrollPane>
-        <Button fx:id="ExitButton" onMouseClicked="#OpenMenu" styleClass="MenuButton" text="Exit" />
+        <Button fx:id="ExitButton" onMouseClicked="#OpenMenu" styleClass="ExitButton" text="Back" />
     </children>
 </VBox>

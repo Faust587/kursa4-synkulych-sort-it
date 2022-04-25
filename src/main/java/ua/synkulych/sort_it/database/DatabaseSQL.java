@@ -13,7 +13,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class DatabaseSQL implements DatabaseService {
-  private String user, password, serverName, databaseName;
+  private String user;
+  private String password;
+  private String serverName;
+  private String databaseName;
   private int port;
   public static Connection connection = null;
 
@@ -32,6 +35,8 @@ public class DatabaseSQL implements DatabaseService {
     this.databaseName = databaseName;
     this.port = port;
   }
+
+  public DatabaseSQL() {}
 
   /**
    * This method connect application to MySQL database

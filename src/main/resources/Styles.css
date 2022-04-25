@@ -119,6 +119,25 @@
     -fx-pref-width: 187px;
 }
 
+.ExitButton{
+    -fx-background-color: #EC4E20;
+    -fx-font-size: 20px;
+    -fx-font-weight: 900;
+    -fx-font-family: "Segoe UI";
+    -fx-text-fill: #fff;
+    -fx-background-radius: 9px;
+    -fx-pref-height: 52px;
+    -fx-pref-width: 187px;
+}
+
+.ExitButton:hover{
+    -fx-background-color: #c44319;
+}
+
+.ExitButton:pressed{
+    -fx-background-color: #9a2500;
+}
+
 .MenuButton:hover {
     -fx-background-color: #808080;
     -fx-text-fill: #F1E9DB;
@@ -157,8 +176,30 @@
 }
 
 #RatingPane {
-    /*-fx-pref-width: 700px;*/
-    /*-fx-max-width: 700px;*/
     -fx-alignment: CENTER;
     -fx-padding: 0px 400px;
+}
+
+#GameTitle {
+    -fx-font-size: 60px;
+    -fx-font-weight: 900;
+    -fx-text-fill: #5DB7DE;
+    -fx-font-family: "Segoe UI";
+    -fx-padding: 20px 0px 0px 0px;
+}
+
+#GameView {
+    -fx-pref-width: 1080px;
+    -fx-pref-height: 720px;
+    -fx-background-color: #F1E9DB;
+    -fx-alignment: CENTER;
+    -fx-spacing: 20px;
+}
+
+#SetDifficultView {
+    -fx-pref-width: 1080px;
+    -fx-pref-height: 720px;
+    -fx-background-color: #F1E9DB;
+    -fx-alignment: CENTER;
+    -fx-spacing: 20px;
 }

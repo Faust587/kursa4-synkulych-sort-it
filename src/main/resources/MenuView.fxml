@@ -8,9 +8,8 @@
 <VBox fx:id="MenuView" stylesheets="Styles.css" fx:controller="ua.synkulych.sort_it.controllers.MenuController" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <Label fx:id="MenuTitle" text="SORT IT" />
-        <Button fx:id="StartGameButton" styleClass="MenuButton" text="Play" />
+        <Button fx:id="StartGameButton" onMouseClicked="#StartGame" styleClass="MenuButton" text="Play" />
         <Button fx:id="OpenRatingButton" onMouseClicked="#OpenRating" styleClass="MenuButton " text="Rating" />
-        <Button fx:id="OpenSettingsButton" styleClass="MenuButton" text="Settings" />
-        <Button fx:id="ExitButton" onMouseClicked="#CloseApplication" styleClass="MenuButton" text="Exit" />
+        <Button fx:id="ExitButton" onMouseClicked="#CloseApplication" styleClass="ExitButton" text="Exit" />
     </children>
 </VBox>

@@ -6,11 +6,6 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import ua.synkulych.sort_it.controllers.AuthController;
-import ua.synkulych.sort_it.database.DatabaseSQL;
-import ua.synkulych.sort_it.entity.Response;
-import ua.synkulych.sort_it.entity.User;
-
-import java.util.Objects;
 
 public class ProgramRunner extends Application {
 
