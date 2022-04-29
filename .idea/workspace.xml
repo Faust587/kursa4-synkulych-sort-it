@@ -1,32 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Kursa4_Sort_it_Synkulych:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1744d8f-4d27-4733-b6a9-f34e69a59d2a" name="Changes" comment="I wrote a lot of bad code...">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/controllers/GameController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/controllers/SetDifficultController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/controllers/WindowsServices.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/entity/BoardSizes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/GameView.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/SetDifficultView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="c1744d8f-4d27-4733-b6a9-f34e69a59d2a" name="Changes" comment="Created game functionality">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Kursa4_Sort_it_Synkulych_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/resourceBundles.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/gson-2.8.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/database/DatabaseConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/styles/BigSize.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/styles/MiddleSize.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/styles/SizeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/styles/SmallSize.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/database_config.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/language_en.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/language_ru.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/language_ua.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/sizes_big.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/sizes_middle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/sizes_small.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/small.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/ProgramRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/ProgramRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/controllers/AlertController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/controllers/AlertController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filename.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/controllers/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/controllers/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/controllers/MenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/controllers/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/controllers/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/controllers/RatingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/controllers/RatingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/controllers/RatingService.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/database/DatabaseSQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/database/DatabaseSQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/database/DatabaseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/database/DatabaseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/entity/AlertWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/entity/AlertWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/MenuView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MenuView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RatingView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RatingView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/GameView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/GameView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,17 +44,23 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="AnnotationType" />
-        <option value="CSS File" />
         <option value="FxmlFile" />
         <option value="Interface" />
+        <option value="CSS File" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$PROJECT_DIR$/lib/javafx-sdk-18/lib/javafx.base.jar!/javafx/event/ActionEvent.class" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/ua/synkulych/sort_it/controllers/GameController.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -72,7 +85,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/jotyr/IdeaProjects/Kursa4_Sort_it_Synkulych/src/main/resources&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/jotyr/IdeaProjects/Kursa4_Sort_it_Synkulych/lib/gson-2.8.2.jar&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
@@ -90,6 +103,7 @@
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\jotyr\IdeaProjects\Kursa4_Sort_it_Synkulych\src\main\resources" />
+      <recent name="C:\Users\jotyr\IdeaProjects\Kursa4_Sort_it_Synkulych\src\main\resources\locale" />
     </key>
   </component>
   <component name="RunManager">
@@ -123,6 +137,14 @@
       <workItem from="1650872327174" duration="3701000" />
       <workItem from="1650879473786" duration="13147000" />
       <workItem from="1650902963304" duration="4807000" />
+      <workItem from="1650916018537" duration="335000" />
+      <workItem from="1650916487207" duration="1122000" />
+      <workItem from="1650971240074" duration="1281000" />
+      <workItem from="1650977537842" duration="3716000" />
+      <workItem from="1651063864621" duration="4455000" />
+      <workItem from="1651068384918" duration="13450000" />
+      <workItem from="1651212319645" duration="1319000" />
+      <workItem from="1651222109508" duration="2660000" />
     </task>
     <task id="LOCAL-00001" summary="Create basic template for javafx">
       <created>1650351895102</created>
@@ -173,7 +195,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650562232172</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Created game functionality">
+      <created>1650916094273</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1650916094273</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -198,7 +227,8 @@
     <MESSAGE value="Created update method and interface for it in DatabaseSQL class" />
     <MESSAGE value="Created AuthView.fxml, AlertView.fxml and controllers to them.&#10;Updated DatabaseService.java, DatabaseSQL.java;" />
     <MESSAGE value="I wrote a lot of bad code..." />
-    <option name="LAST_COMMIT_MESSAGE" value="I wrote a lot of bad code..." />
+    <MESSAGE value="Created game functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created game functionality" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

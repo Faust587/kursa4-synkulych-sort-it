@@ -1,0 +1,7 @@
+{
+  "user": "root",
+  "password": "",
+  "serverName": "127.0.0.1",
+  "databaseName": "sort_it_database",
+  "port": 3306
+}

@@ -21,7 +21,7 @@ public class RatingController implements WindowsServices {
 
   public void init(Stage stage) {
     this.stage = stage;
-    DatabaseSQL databaseSQL = new DatabaseSQL("root", "", "127.0.0.1", "sort_it_database", 3306);
+    DatabaseSQL databaseSQL = new DatabaseSQL();
     Response<Boolean> response = databaseSQL.connect();
     if (!response.isOK()) {
       AlertWindow alertWindow = new AlertWindow(response.getTitle(), response.getDescription());
