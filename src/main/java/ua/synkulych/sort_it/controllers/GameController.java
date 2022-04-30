@@ -39,6 +39,7 @@ public class GameController implements WindowsServices {
    * @param difficult type of difficult which user have chosen
    */
   public void init(Stage stage, String difficult) {
+    ExitButton.setText("");
     this.stage = stage;
     sizes = getSizes(difficult);
     points = getPoints(difficult);

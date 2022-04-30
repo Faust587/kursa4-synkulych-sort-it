@@ -1,11 +1,16 @@
 package ua.synkulych.sort_it.database;
 
+import com.google.gson.Gson;
 import com.mysql.cj.jdbc.MysqlDataSource;
 
 import ua.synkulych.sort_it.entity.Rating;
 import ua.synkulych.sort_it.entity.Response;
 import ua.synkulych.sort_it.entity.User;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,23 +25,31 @@ public class DatabaseSQL implements DatabaseService {
   private int port;
   public static Connection connection = null;
 
-  /**
-   * DatabaseSQL constructor which can do actions to connected MySQL database
-   * @param user this is a string variable, admin username
-   * @param password this is a string variable, password for the admin account
-   * @param serverName this is a string variable, web path to the server
-   * @param databaseName this is a string variable, name of the database
-   * @param port this is an integer variable, port of the server
-   */
-  public DatabaseSQL(String user, String password, String serverName, String databaseName, int port) {
-    this.user = user;
-    this.password = password;
-    this.serverName = serverName;
-    this.databaseName = databaseName;
-    this.port = port;
+  public DatabaseSQL() {
+    DatabaseConfig config = getConfig();
+    this.user = config.getUser();
+    this.password = config.getPassword();
+    this.serverName = config.getServerName();
+    this.databaseName = config.getDatabaseName();
+    this.port = config.getPort();
   }
 
-  public DatabaseSQL() {}
+  public DatabaseConfig getConfig() {
+    URL jsonPath = getClass().getResource("/database_config.json");
+    DatabaseConfig config;
+    try {
+      BufferedReader read = new BufferedReader(new InputStreamReader(jsonPath.openStream()));
+      StringBuilder jsonValue = new StringBuilder();
+      String i;
+      while ((i = read.readLine()) != null)
+        jsonValue.append(i);
+      read.close();
+      config = new Gson().fromJson(jsonValue.toString(), DatabaseConfig.class);
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
+    return config;
+  }
 
   /**
    * This method connect application to MySQL database
@@ -44,10 +57,6 @@ public class DatabaseSQL implements DatabaseService {
    */
   public Response<Boolean> connect() {
     Response<Boolean> response = new Response<>();
-    /*
-     * This is constants for connection to database
-     * TODO ask question to teacher about constant for connection to database;
-     */
 
     if (connection != null && checkConnection()) {
       response.setOK(true);

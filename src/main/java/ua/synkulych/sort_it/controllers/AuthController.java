@@ -1,6 +1,7 @@
 package ua.synkulych.sort_it.controllers;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
@@ -18,6 +19,7 @@ public class AuthController implements WindowsServices {
   @FXML public TextField SignUpUsername;
   @FXML public PasswordField SignUpPassword;
   @FXML public PasswordField SignUpRepeatPassword;
+  public Label SignUp;
   @FXML private Stage stage;
 
   /**
@@ -26,7 +28,7 @@ public class AuthController implements WindowsServices {
    */
   public void init(Stage stage) {
     this.stage = stage;
-    DatabaseSQL databaseSQL = new DatabaseSQL("root", "", "127.0.0.1", "sort_it_database", 3306);
+    DatabaseSQL databaseSQL = new DatabaseSQL();
     Response<Boolean> response = databaseSQL.connect();
     if (!response.isOK()) {
       AlertWindow alertWindow = new AlertWindow(response.getTitle(), response.getDescription());
@@ -39,7 +41,7 @@ public class AuthController implements WindowsServices {
    * Which make authorization for user
    */
   public void SignInAction() {
-    DatabaseSQL databaseSQL = new DatabaseSQL("root", "", "127.0.0.1", "sort_it_database", 3306);
+    DatabaseSQL databaseSQL = new DatabaseSQL();
     String username = SignInUsername.getText();
     String password = SignInPassword.getText();
     Response<Boolean> response = databaseSQL.userLogIn(username, password);
@@ -64,7 +66,7 @@ public class AuthController implements WindowsServices {
       return;
     }
 
-    DatabaseSQL databaseSQL = new DatabaseSQL("root", "", "127.0.0.1", "sort_it_database", 3306);
+    DatabaseSQL databaseSQL = new DatabaseSQL();
     String username = SignUpUsername.getText();
     String password = SignUpPassword.getText();
     Response<Boolean> response = databaseSQL.addNewUserToDatabase(username, password);
