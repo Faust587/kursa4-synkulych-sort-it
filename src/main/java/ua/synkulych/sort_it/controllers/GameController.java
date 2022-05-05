@@ -11,6 +11,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.RowConstraints;
 import javafx.stage.Stage;
+import ua.synkulych.sort_it.constants.PathConstants;
+import ua.synkulych.sort_it.constants.TitleConstants;
 import ua.synkulych.sort_it.database.DatabaseSQL;
 import ua.synkulych.sort_it.entity.BoardSizes;
 import ua.synkulych.sort_it.entity.User;
@@ -22,7 +24,6 @@ import java.util.Random;
 import java.util.Stack;
 
 public class GameController implements WindowsServices {
-  public Button ExitButton;
   public GridPane GameGrid;
   public Label GameTitle;
   private Stage stage;
@@ -39,7 +40,6 @@ public class GameController implements WindowsServices {
    * @param difficult type of difficult which user have chosen
    */
   public void init(Stage stage, String difficult) {
-    ExitButton.setText("");
     this.stage = stage;
     sizes = getSizes(difficult);
     points = getPoints(difficult);
@@ -64,19 +64,18 @@ public class GameController implements WindowsServices {
         button.setOnAction(this::click);
         GridPane.setHalignment(button, HPos.CENTER);
         GridPane.setValignment(button, VPos.CENTER);
-        String color;
         if (gameBoard[x][y] == 1) {
-          color = "#EC4E20";
+          button.setStyle("-fx-background-color: #EC4E20");
         } else if (gameBoard[x][y] == 2) {
-          color = "#F9C22E";
+          button.setStyle("-fx-background-color: #F9C22E");
         } else if (gameBoard[x][y] == 3) {
-          color = "#3590F3";
+          button.setStyle("-fx-background-color: #3590F3");
         } else if (gameBoard[x][y] == 4) {
-          color = "#16E0BD";
+          button.setStyle("-fx-background-color: #16E0BD");
         } else {
-          color = "#A39B8B";
+          button.setStyle("-fx-background-color: #A39B8B");
         }
-        button.setStyle("-fx-pref-width: 86px; -fx-pref-height: 86px; -fx-background-radius: 43px; -fx-background-color:" + color + ";");
+        button.getStyleClass().add("GameBall");
         GameGrid.add(button, x, y);
       }
     }
@@ -87,7 +86,7 @@ public class GameController implements WindowsServices {
    * This method reflects "gameBoard" array
    */
   private void mirrorGameBoard() {
-    int temp = 0;
+    int temp;
     for(int i = 0; i < sizes.getX(); i++){
       for(int j = 0; j < sizes.getY() / 2; j++){
         temp = gameBoard[i][j];
@@ -100,7 +99,7 @@ public class GameController implements WindowsServices {
   /**
    * This method do some manipulations with "gameBoard" array
    * This method called when some game buttons was clicked
-   * @param actionEvent variable which contains all info about buttons which was cliked
+   * @param actionEvent variable which contains all info about buttons which was clicked
    */
   private void click(ActionEvent actionEvent) {
     if (blockGame) return;
@@ -255,15 +254,18 @@ public class GameController implements WindowsServices {
     GameGrid.getRowConstraints().clear();
 
     GameGrid.setAlignment(Pos.CENTER);
-    //GameGrid.setGridLinesVisible(true);
     for (int x = 0; x < sizes.getX(); x++) {
       ColumnConstraints column = new ColumnConstraints();
-      column.setPrefWidth(150);
+      column.setMinWidth(80);
+      column.setPrefWidth(125);
+      column.setMaxWidth(150);
       GameGrid.getColumnConstraints().add(column);
     }
     for (int y = 0; y < sizes.getY(); y++) {
       RowConstraints row = new RowConstraints();
+      row.setMinHeight(80);
       row.setPrefHeight(100);
+      row.setMaxHeight(120);
       GameGrid.getRowConstraints().add(row);
     }
   }
@@ -275,12 +277,10 @@ public class GameController implements WindowsServices {
     for (int x = 0; x < sizes.getX(); x++) {
       for (int y = 0; y < sizes.getY(); y++) {
         Region rectangle = new Region();
-        rectangle.setMaxSize(110, 100);
-        rectangle.setMinSize(110, 100);
         if (y == sizes.getY() - 1) {
-          rectangle.setStyle("-fx-background-radius: 0px 0px 10px 10px; -fx-background-color: #A39B8B;");
+          rectangle.getStyleClass().add("GameColumnRoof");
         } else {
-          rectangle.setStyle("-fx-background-color: #A39B8B;");
+          rectangle.getStyleClass().add("GameColumn");
         }
         GridPane.setHalignment(rectangle, HPos.CENTER);
         GridPane.setValignment(rectangle, VPos.CENTER);
@@ -295,12 +295,12 @@ public class GameController implements WindowsServices {
    * @return "BoardSizes" type variable
    */
   private BoardSizes getSizes(String difficult) {
-    switch (difficult) {
-      case "Easy": return new BoardSizes(4, 3);
-      case "Medium": return new BoardSizes(4, 4);
-      case "Hard": return new BoardSizes(5, 4);
-      default: return new BoardSizes(5, 5);
-    }
+    return switch (difficult) {
+      case "Easy" -> new BoardSizes(4, 3);
+      case "Medium" -> new BoardSizes(4, 4);
+      case "Hard" -> new BoardSizes(5, 4);
+      default -> new BoardSizes(5, 5);
+    };
   }
 
   /**
@@ -309,12 +309,12 @@ public class GameController implements WindowsServices {
    * @return integer variable
    */
   private int getPoints(String difficult) {
-    switch (difficult) {
-      case "Easy": return 5;
-      case "Medium": return 10;
-      case "Hard": return 20;
-      default: return 25;
-    }
+    return switch (difficult) {
+      case "Easy" -> 5;
+      case "Medium" -> 10;
+      case "Hard" -> 20;
+      default -> 25;
+    };
   }
 
   /**
@@ -332,6 +332,6 @@ public class GameController implements WindowsServices {
    * Called when buttons was clicked
    */
   public void OpenMenu() {
-    openNewWindow(stage, "/MenuView.fxml", "Main menu", null);
+    openNewWindow(stage, PathConstants.MenuView, TitleConstants.MainMenu, null);
   }
 }

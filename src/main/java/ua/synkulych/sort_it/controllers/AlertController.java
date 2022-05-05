@@ -3,6 +3,7 @@ package ua.synkulych.sort_it.controllers;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import ua.synkulych.sort_it.constants.PathConstants;
 import ua.synkulych.sort_it.entity.AlertWindow;
 
 import java.util.Objects;
@@ -17,6 +18,6 @@ public class AlertController {
    */
   public void init(String description) {
     AlertDescription.setText(description);
-    ErrorImage.setImage(new Image(Objects.requireNonNull(AlertWindow.class.getResourceAsStream("/oops.png"))));
+    ErrorImage.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream(PathConstants.OopsIcon))));
   }
 }

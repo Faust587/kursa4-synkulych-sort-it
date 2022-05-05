@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<VBox styleClass="AlertBox" stylesheets="/styles/light/BigStyles.css"
+      fx:controller="ua.synkulych.sort_it.controllers.AlertController"
+      xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1">
+    <Label fx:id="AlertDescription"/>
+    <ImageView fx:id="ErrorImage"/>
+</VBox>

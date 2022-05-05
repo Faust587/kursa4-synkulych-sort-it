@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox styleClass="MainBox"
+      fx:controller="ua.synkulych.sort_it.controllers.AuthController"
+      xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1">
+    <VBox styleClass="AuthenticationForm">
+        <Label styleClass="StandardLabel"
+               text="%sign_up_label"/>
+        <Label styleClass="InputLabel"
+               text="%username_label"/>
+        <TextField fx:id="SignUpUsername"
+                   styleClass="InputTextField"/>
+        <Label styleClass="InputLabel"
+               text="%password_label"/>
+        <PasswordField fx:id="SignUpPassword"
+                       styleClass="InputTextField"/>
+        <Label styleClass="InputLabel"
+               text="%repeat_password_label"/>
+        <PasswordField fx:id="SignUpRepeatPassword"
+                       styleClass="InputTextField"/>
+        <Button styleClass="SimpleButton"
+                text="%sign_up_button"
+                onMouseClicked="#SignUpAction"/>
+        <Hyperlink styleClass="HyperLink"
+                   text="%hyper_link_to_sign_in"
+                   onMouseClicked="#OpenSignInMenu"/>
+    </VBox>
+</HBox>

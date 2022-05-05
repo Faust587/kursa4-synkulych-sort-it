@@ -1,13 +1,13 @@
 package ua.synkulych.sort_it;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import ua.synkulych.sort_it.controllers.AuthController;
+import ua.synkulych.sort_it.constants.PathConstants;
+import ua.synkulych.sort_it.constants.TitleConstants;
+import ua.synkulych.sort_it.controllers.WindowsServices;
 
-public class ProgramRunner extends Application {
+public class ProgramRunner extends Application implements WindowsServices {
 
   public static void main(String[] args) {
     launch(args);
@@ -15,12 +15,7 @@ public class ProgramRunner extends Application {
 
   @Override
   public void start(Stage stage) throws Exception {
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("/AuthView.fxml"));
-    Scene authScene = new Scene(loader.load());
-    stage.setTitle("Authorization");
-    stage.getIcons().add(new Image(ProgramRunner.class.getResourceAsStream( "/icon.png" )));
-    ((AuthController)loader.getController()).init(stage);
-    stage.setScene(authScene);
-    stage.show();
+    stage.getIcons().add(new Image(ProgramRunner.class.getResourceAsStream(PathConstants.Icon)));
+    openNewWindow(stage, PathConstants.SignInView, TitleConstants.SignIn, null);
   }
 }

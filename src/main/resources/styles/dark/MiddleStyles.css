@@ -1,0 +1,162 @@
+.MainBox {
+    -fx-pref-width: 980px;
+    -fx-background-color: black;
+    -fx-alignment: CENTER;
+    -fx-spacing: 20px;
+}
+
+.SettingsHBox {
+    -fx-alignment: CENTER;
+    -fx-spacing: 20px;
+}
+
+.AuthenticationForm {
+    -fx-pref-width: 700px;
+    -fx-pref-height: 100%;
+    -fx-alignment: CENTER;
+    -fx-spacing: 15px;
+}
+
+.StandardLabel {
+    -fx-font-size: 35px;
+    -fx-font-weight: 900;
+    -fx-font-family: "Segoe UI";
+    -fx-text-fill: #5DB7DE;
+}
+
+.BigLabel {
+    -fx-font-size: 50px;
+    -fx-font-weight: 900;
+    -fx-text-fill: #5DB7DE;
+    -fx-font-family: "Segoe UI";
+}
+
+.InputLabel {
+    -fx-pref-width: 500px;
+    -fx-padding: 30px 0px 0px 20px;
+    -fx-font-size: 20px;
+    -fx-font-weight: 900;
+    -fx-font-family: "Segoe UI";
+    -fx-text-fill: #808080;
+}
+
+.InputTextField {
+    -fx-font-size: 20px;
+    -fx-font-weight: 800;
+    -fx-max-width: 500px;
+    -fx-border-width: 0px;
+    -fx-background-color: #fff;
+    -fx-text-fill: #5DB7DE;
+}
+
+.HyperLink {
+    -fx-font-size: 14px;
+}
+
+.SimpleButton {
+    -fx-background-color: #A39B8B;
+    -fx-font-size: 20px;
+    -fx-font-weight: 900;
+    -fx-font-family: "Segoe UI";
+    -fx-text-fill: #fff;
+    -fx-background-radius: 10px;
+    -fx-pref-height: 50px;
+    -fx-pref-width: 200px;
+}
+
+.SimpleButton:hover {
+    -fx-background-color: #808080;
+    -fx-text-fill: #F1E9DB;
+}
+
+.SimpleButton:pressed {
+    -fx-background-color: #3590F3;
+    -fx-text-fill: #F1E9DB;
+}
+
+.ExitButton {
+    -fx-background-color: #EC4E20;
+    -fx-font-size: 20px;
+    -fx-font-weight: 900;
+    -fx-font-family: "Segoe UI";
+    -fx-text-fill: #fff;
+    -fx-background-radius: 10px;
+    -fx-pref-height: 50px;
+    -fx-pref-width: 180px;
+}
+
+.ExitButton:hover {
+    -fx-background-color: #c44319;
+}
+
+.ExitButton:pressed {
+    -fx-background-color: #9a2500;
+}
+
+.GameColumnRoof {
+    -fx-max-width: 70px;
+    -fx-max-height: 90px;
+
+    -fx-background-radius: 0px 0px 10px 10px;
+    -fx-background-color: #A39B8B;
+}
+
+.GameColumn {
+    -fx-max-width: 70px;
+    -fx-max-height: 90px;
+
+    -fx-background-color: #A39B8B;
+}
+
+.GameBall {
+    -fx-pref-width: 66px;
+    -fx-pref-height: 66px;
+    -fx-background-radius: 33px;
+}
+
+#RatingPane {
+    -fx-alignment: CENTER;
+    -fx-padding: 0px 80px;
+}
+
+#RatingList {
+    -fx-alignment: CENTER;
+}
+
+.RatingView {
+    max-height: 600px;
+    max-width: 900px;
+    min-height: 600px;
+    min-width: 900px;
+    -fx-pref-height: 600px;
+    -fx-pref-width: 900px;
+    -fx-background-color: #F1E9DB;
+    -fx-alignment: CENTER;
+    -fx-spacing: 15px;
+}
+
+.RatingLabel {
+    -fx-min-width: 90px;
+    -fx-pref-width: 350px;
+    -fx-alignment: CENTER;
+    -fx-font-size: 25px;
+    -fx-font-family: "Segoe UI";
+    -fx-font-weight: 900;
+    -fx-text-fill: #03183f;
+}
+
+.AlertBox {
+    -fx-pref-width: 600px;
+    -fx-pref-height: 400px;
+    -fx-background-color: #fff;
+    -fx-spacing: 20px;
+    -fx-alignment: CENTER;
+}
+
+#AlertDescription {
+    -fx-text-alignment: CENTER;
+    -fx-font-size: 20px;
+    -fx-font-weight: 900;
+    -fx-font-family: "Segoe UI";
+    -fx-text-fill: #ff0000;
+}

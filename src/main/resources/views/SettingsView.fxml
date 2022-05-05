@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+<VBox styleClass="MainBox"
+      fx:controller="ua.synkulych.sort_it.controllers.SettingsController"
+      xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1">
+    <Label styleClass="BigLabel"
+           text="%settings_label"/>
+    <HBox styleClass="SettingsHBox">
+        <Label styleClass="StandardLabel"
+               text="%settings_choose_language"/>
+        <Button onMouseClicked="#changeSettings"
+                styleClass="SimpleButton"
+                fx:id="ua"
+                text="%settings_ua_lang"/>
+        <Button onMouseClicked="#changeSettings"
+                styleClass="SimpleButton"
+                fx:id="ru"
+                text="%settings_ru_lang"/>
+        <Button onMouseClicked="#changeSettings"
+                styleClass="SimpleButton"
+                fx:id="en"
+                text="%settings_en_lang"/>
+    </HBox>
+    <HBox styleClass="SettingsHBox">
+        <Label styleClass="StandardLabel"
+               text="%settings_choose_theme"/>
+        <Button onMouseClicked="#changeSettings"
+                styleClass="SimpleButton"
+                fx:id="light"
+                text="%settings_light_theme"/>
+        <Button onMouseClicked="#changeSettings"
+                styleClass="SimpleButton"
+                fx:id="dark"
+                text="%settings_dark_theme"/>
+    </HBox>
+    <Button onMouseClicked="#OpenMenu"
+            styleClass="ExitButton"
+            text="%back_button"/>
+</VBox>

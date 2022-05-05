@@ -3,6 +3,8 @@ package ua.synkulych.sort_it.controllers;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import ua.synkulych.sort_it.constants.PathConstants;
+import ua.synkulych.sort_it.constants.TitleConstants;
 
 public class SetDifficultController implements WindowsServices {
   private Stage stage;
@@ -11,11 +13,11 @@ public class SetDifficultController implements WindowsServices {
   }
 
   public void OpenMainMenu(MouseEvent mouseEvent) {
-    openNewWindow(stage, "/MenuView.fxml", "Main menu", null);
+    openNewWindow(stage, PathConstants.MenuView, TitleConstants.MainMenu, null);
   }
 
   public void OpenGame(MouseEvent mouseEvent) {
     String difficult =((Button) mouseEvent.getSource()).getText();
-    openNewWindow(stage, "/GameView.fxml", "Sort it", difficult);
+    openNewWindow(stage, PathConstants.GameView, TitleConstants.SortIt, difficult);
   }
 }

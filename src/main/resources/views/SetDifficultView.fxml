@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<VBox styleClass="MainBox"
+      fx:controller="ua.synkulych.sort_it.controllers.SetDifficultController"
+      xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1">
+    <Label styleClass="StandardLabel"
+           text="%choose_difficult_label"/>
+    <Button styleClass="SimpleButton"
+            onMouseClicked="#OpenGame"
+            text="%easy_difficult"/>
+    <Button styleClass="SimpleButton"
+            onMouseClicked="#OpenGame"
+            text="%medium_difficult"/>
+    <Button styleClass="SimpleButton"
+            onMouseClicked="#OpenGame"
+            text="%hard_difficult"/>
+    <Button styleClass="SimpleButton"
+            onMouseClicked="#OpenGame"
+            text="%monster_difficult"/>
+    <Button styleClass="ExitButton"
+            onMouseClicked="#OpenMainMenu"
+            text="%back_button"/>
+</VBox>

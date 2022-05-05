@@ -1,16 +1,32 @@
 package ua.synkulych.sort_it.database;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public interface DatabaseService {
+public interface DatabaseUtils {
   /**
    * Validate username;
    * @param username this is a string variable
    * @return boolean;
    */
+
   default boolean userNameIsValid(String username) {
     int usernameLength = username.length();
     return usernameLength >= 3 && usernameLength <= 12;
+  }
+
+  default void closeQuietly(Connection connection) {
+    try {connection.close();} catch (SQLException ignored) {}
+  }
+
+  default void closeQuietly(PreparedStatement statement) {
+    try {statement.close();} catch (SQLException ignored) {}
+  }
+
+  default void closeQuietly(ResultSet resultSet) {
+    try {resultSet.close();} catch (SQLException ignored) {}
   }
 
   /**
@@ -30,19 +46,5 @@ public interface DatabaseService {
       parsedError.append(arraySrt[i]).append(" ");
     }
     return parsedError.toString();
-  }
-
-  /**
-   * This method check connection to database
-   * @return boolean
-   */
-  default boolean checkConnection() {
-    boolean result;
-    try {
-      result = DatabaseSQL.connection.isValid(3);
-    } catch (SQLException e) {
-      result = false;
-    }
-    return result;
   }
 }

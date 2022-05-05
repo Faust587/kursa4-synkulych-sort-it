@@ -3,6 +3,8 @@ package ua.synkulych.sort_it.database;
 import com.google.gson.Gson;
 import com.mysql.cj.jdbc.MysqlDataSource;
 
+import ua.synkulych.sort_it.constants.PathConstants;
+import ua.synkulych.sort_it.entity.AlertWindow;
 import ua.synkulych.sort_it.entity.Rating;
 import ua.synkulych.sort_it.entity.Response;
 import ua.synkulych.sort_it.entity.User;
@@ -17,13 +19,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class DatabaseSQL implements DatabaseService {
+public class DatabaseSQL implements DatabaseUtils {
   private String user;
   private String password;
   private String serverName;
   private String databaseName;
   private int port;
-  public static Connection connection = null;
+  public Connection connection = null;
 
   public DatabaseSQL() {
     DatabaseConfig config = getConfig();
@@ -35,9 +37,10 @@ public class DatabaseSQL implements DatabaseService {
   }
 
   public DatabaseConfig getConfig() {
-    URL jsonPath = getClass().getResource("/database_config.json");
+    URL jsonPath = getClass().getResource(PathConstants.DATABASE_CONFIG);
     DatabaseConfig config;
     try {
+      assert jsonPath != null;
       BufferedReader read = new BufferedReader(new InputStreamReader(jsonPath.openStream()));
       StringBuilder jsonValue = new StringBuilder();
       String i;
@@ -55,14 +58,7 @@ public class DatabaseSQL implements DatabaseService {
    * This method connect application to MySQL database
    * @return Response<Boolean> with all errors if they are
    */
-  public Response<Boolean> connect() {
-    Response<Boolean> response = new Response<>();
-
-    if (connection != null && checkConnection()) {
-      response.setOK(true);
-      return response;
-    }
-
+  public boolean connect() {
     MysqlDataSource dataSource = new MysqlDataSource();
     dataSource.setUser(user);
     dataSource.setPassword(password);
@@ -72,28 +68,13 @@ public class DatabaseSQL implements DatabaseService {
 
     try {
       dataSource.setServerTimezone("UTC");
-    } catch (SQLException ex) {
-      response.setOK(false);
-      response.setTitle("Connection error");
-      response.setDescription(parseError(ex + ""));
-    }
-    try {
       dataSource.setCharacterEncoding("utf8");
-    } catch (SQLException ex) {
-      response.setOK(false);
-      response.setTitle("Connection error");
-      response.setDescription(parseError(ex + ""));
-    }
-    try {
       connection=dataSource.getConnection();
-      response.setOK(true);
+      return true;
     } catch (SQLException ex) {
-      connection=null;
-      response.setOK(false);
-      response.setTitle("Connection error");
-      response.setDescription(parseError(ex + ""));
+      new AlertWindow("Connection error", parseError(ex + ""));
+      return false;
     }
-    return response;
   }
 
   /**
@@ -102,43 +83,41 @@ public class DatabaseSQL implements DatabaseService {
    * @param password this is a string variable
    * @return Response<Boolean>
    */
-  public Response<Boolean> addNewUserToDatabase(String username, String password) {
-    Response<Boolean> response = new Response<>();
+  public boolean addNewUserToDatabase(String username, String password) {
+    boolean connect = connect();
+    if (!connect) return false;
 
     if (!userNameIsValid(username)) {
-      response.setOK(false);
-      response.setTitle("Validation error");
-      response.setDescription("Username should be more then 3 symbols and less then 12 symbols");
-      return response;
+      new AlertWindow("Validation error", "Username should be more then 3 symbols and less then 12 symbols");
+      return false;
     }
 
     if (!userPasswordIsValid(password)) {
-      response.setOK(false);
-      response.setTitle("Validation error");
-      response.setDescription("Password should be more then 4 symbols and less then 8 symbols");
-      return response;
+      new AlertWindow("Validation error", "Password should be more then 4 symbols and less then 8 symbols");
+      return false;
     }
 
+    boolean sqlResult = false;
     String SQL= "INSERT INTO `users` (`id`, `username`, `password`, `points`) VALUES (NULL,?,?,DEFAULT)";
-    PreparedStatement statement;
+    PreparedStatement statement = null;
     try {
       statement = connection.prepareStatement(SQL);
       statement.setString(1, username);
       statement.setString(2, password);
       statement.executeUpdate();
       User.setUsername(username);
-      response.setOK(true);
+      sqlResult = true;
     } catch (SQLException ex) {
-      response.setOK(false);
       if (ex.toString().contains("Duplicate entry")) {
-        response.setTitle("Duplicate name");
-        response.setDescription("This name has already taken, choose another name");
+        new AlertWindow("Duplicate name", "This name has already taken, choose another name");
       } else {
-        response.setTitle("ERROR");
-        response.setDescription(parseError(ex + ""));
+        new AlertWindow("ERROR", parseError(ex + ""));
       }
+    } finally {
+      closeQuietly(connection);
+      closeQuietly(statement);
     }
-    return response;
+    return sqlResult;
   }
 
   /**
@@ -148,13 +127,19 @@ public class DatabaseSQL implements DatabaseService {
   public Response<ArrayList<Rating>> getRatingList() {
     Response<ArrayList<Rating>> response = new Response<>();
 
-    String SQL= "SELECT username, points FROM users ORDER BY points DESC";
-    PreparedStatement statement;
-    ArrayList<Rating> ratingArrayList = new ArrayList<>();
+    boolean connect = connect();
+    if (!connect) {
+      response.setOK(false);
+      return response;
+    }
 
+    String SQL= "SELECT username, points FROM users ORDER BY points DESC";
+    PreparedStatement statement = null;
+    ArrayList<Rating> ratingArrayList = new ArrayList<>();
+    ResultSet result = null;
     try {
       statement = connection.prepareStatement(SQL);
-      ResultSet result = statement.executeQuery();
+      result = statement.executeQuery();
 
       int rateCounter = 1;
 
@@ -165,7 +150,12 @@ public class DatabaseSQL implements DatabaseService {
         rateCounter++;
       }
     } catch (SQLException ex) {
-      System.out.println(ex  + "");
+      new AlertWindow("Database error", parseError(ex + ""));
+      response.setOK(false);
+    } finally {
+      closeQuietly(connection);
+      closeQuietly(statement);
+      closeQuietly(result);
     }
     response.setValue(ratingArrayList);
     return response;
@@ -174,27 +164,28 @@ public class DatabaseSQL implements DatabaseService {
   /**
    * This method updates info about user's points
    * @param points this is integer variable, which is added to all user's points
-   * @return response info about database updating
    */
-  public Response<Boolean> addPointsToUserRating(int points) {
+  public void addPointsToUserRating(int points) {
+    boolean connect = connect();
+    if (!connect) return;
     Response<Boolean> response = new Response<>();
 
     String SQL= "UPDATE `users` SET points = points + ? WHERE username=?";
-    PreparedStatement statement;
+    PreparedStatement statement = null;
     try {
       statement = connection.prepareStatement(SQL);
       statement.setInt(1, points);
       statement.setString(2, User.getUsername());
       int result = statement.executeUpdate();
-      response.setOK(result == 1);
-      response.setTitle("Unknown database error");
-      response.setDescription("Unknown database error, please try again");
+      if (result != 1) {
+        new AlertWindow("Unknown database error", "Unknown database error, please try again");
+      }
     } catch (SQLException ex) {
-      response.setOK(false);
-      response.setTitle("SERVER ERROR");
-      response.setDescription(parseError(ex + ""));
+      new AlertWindow("SERVER ERROR", parseError(ex + ""));
+    } finally {
+      closeQuietly(connection);
+      closeQuietly(statement);
     }
-    return response;
   }
 
   /**
@@ -203,33 +194,34 @@ public class DatabaseSQL implements DatabaseService {
    * @param password this is a string variable
    * @return response about login operation
    */
-  public Response<Boolean> userLogIn(String username, String password) {
-    Response<Boolean> response = new Response<>();
+  public boolean userLogIn(String username, String password) {
+    boolean connect = connect();
+    if (!connect) return false;
 
+    boolean sqlResult = false;
     String SQL= "SELECT username, password FROM users WHERE username=?";
-    PreparedStatement statement;
+    PreparedStatement statement = null;
+    ResultSet result = null;
     try {
       statement = connection.prepareStatement(SQL);
       statement.setString(1, username);
-      ResultSet result = statement.executeQuery();
+      result = statement.executeQuery();
       if (result.next()) {
         if (result.getString(2).equals(password)) {
-          response.setOK(true);
+          sqlResult = true;
         } else {
-          response.setOK(false);
-          response.setTitle("Incorrect password");
-          response.setDescription("Please try again with another password");
+          new AlertWindow("Incorrect password", "Please try again with another password");
         }
       } else {
-        response.setOK(false);
-        response.setTitle("This username is not exists");
-        response.setDescription("Check that your username is correct");
+        new AlertWindow("This username is not exists", "Check that your username is correct");
       }
     } catch (SQLException ex) {
-      response.setOK(false);
-      response.setTitle("SERVER ERROR");
-      response.setDescription(parseError(ex + ""));
+      new AlertWindow("SERVER ERROR", parseError(ex + ""));
+    } finally {
+      closeQuietly(connection);
+      closeQuietly(statement);
+      closeQuietly(result);
     }
-    return response;
+    return sqlResult;
   }
 }
